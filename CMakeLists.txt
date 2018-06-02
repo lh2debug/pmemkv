@@ -37,6 +37,7 @@ set(SOURCE_FILES src/pmemkv.cc src/pmemkv.h
     src/engines/kvtree.h src/engines/kvtree.cc
     src/engines/art.h src/engines/art.cc
     src/engines/kvtree2.h src/engines/kvtree2.cc
+    src/engines/woart.h src/engines/woart.cc
     src/engines/btree.h src/engines/btree.cc
     src/engines/btree/persistent_b_tree.h src/engines/btree/pstring.h
 )
