@@ -47,6 +47,8 @@ KVEngine* KVEngine::Open(const string& engine, const string& path, const size_t 
             return new kvtree2::KVTree(path, size);
         } else if (engine == btree::ENGINE) {
             return new btree::BTreeEngine(path, size);
+        } else if (engine == woart::ENGINE) {
+            return new woart::Woart(path, size);
         } else {
             return nullptr;
         }
@@ -65,6 +67,8 @@ void KVEngine::Close(KVEngine* kv) {
         delete (kvtree2::KVTree*) kv;
     } else if (engine == btree::ENGINE) {
         delete (btree::BTreeEngine*) kv;
+    } else if (engine == woart::ENGINE) {
+        delete (woart::Woart*) kv;
     }
 }
 
