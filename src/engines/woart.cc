@@ -57,26 +57,26 @@ Woart::~Woart() {
 
 KVStatus Woart::Get(const int32_t limit, const int32_t keybytes, int32_t* valuebytes,
                         const char* key, char* value) { 
-    uintptr_t val = (uintptr_t)art_search(&root, (unsigned char*)(key.c_str()), key.size());                           
+    uintptr_t val = (uintptr_t)art_search(&root, (unsigned char*)(key), (int)(key.size()));                           
     LOG("Get for key=" << key);
     return NOT_FOUND;
 }
 
 KVStatus Woart::Get(const string& key, string* value) {
-    uintptr_t val = (uintptr_t)art_search(&root, (unsigned char*)(key.c_str()), key.size());
+    uintptr_t val = (uintptr_t)art_search(&root, (unsigned char*)(key), (int)(key.size()));
     LOG("Get for key=" << key.c_str());
     return NOT_FOUND;
 }
 
 KVStatus Woart::Put(const string& key, const string& value) {
     uintptr_t line = 1;
-    art_insert(&root, (unsigned char*)(key.c_str()), key.size(), (void*)line);
+    art_insert(&root, (unsigned char*)(key.c_str()), (int)(key.size()), (void*)line);
     LOG("Put key=" << key.c_str() << ", value.size=" << to_string(value.size()));
     return OK;
 }
 
 KVStatus Woart::Remove(const string& key) {
-    uintptr_t val = (uintptr_t)art_delete(&root, (unsigned char*)(key.c_str()), key.size());
+    uintptr_t val = (uintptr_t)art_delete(&root, (unsigned char*)(key.c_str()), (int)(key.size()));
     LOG("Remove key=" << key.c_str());
     return OK;
 }
