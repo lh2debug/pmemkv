@@ -49,7 +49,7 @@ KVEngine* KVEngine::Open(const string& engine, const string& path, const size_t 
         } else if (engine == btree::ENGINE) {
             return new btree::BTreeEngine(path, size);
         } else if (engine == woart::ENGINE) {
-            return new woart::Woart(path, size);
+            return new woart::Woart();
         } else {
             return nullptr;
         }
