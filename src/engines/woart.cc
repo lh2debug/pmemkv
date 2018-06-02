@@ -32,6 +32,7 @@
 
 #include <iostream>
 #include "woart.h"
+#include <cstring>
 
 #define DO_LOG 0
 #define LOG(msg) if (DO_LOG) std::cout << "[woart] " << msg << "\n"
@@ -57,13 +58,13 @@ Woart::~Woart() {
 
 KVStatus Woart::Get(const int32_t limit, const int32_t keybytes, int32_t* valuebytes,
                         const char* key, char* value) { 
-    uintptr_t val = (uintptr_t)art_search(&root, (unsigned char*)(key), (int)(key.size()));                           
+    uintptr_t val = (uintptr_t)art_search(&root, (unsigned char*)(key), strlen(key));                           
     LOG("Get for key=" << key);
     return NOT_FOUND;
 }
 
 KVStatus Woart::Get(const string& key, string* value) {
-    uintptr_t val = (uintptr_t)art_search(&root, (unsigned char*)(key), (int)(key.size()));
+    uintptr_t val = (uintptr_t)art_search(&root, (unsigned char*)(key.c_str()), (int)(key.size()));
     LOG("Get for key=" << key.c_str());
     return NOT_FOUND;
 }
