@@ -34,6 +34,7 @@
 #include "engines/kvtree.h"
 #include "engines/kvtree2.h"
 #include "engines/btree.h"
+#include "engines/woart.h"
 
 namespace pmemkv {
 
