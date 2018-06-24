@@ -88,7 +88,7 @@ static bool FLAGS_histogram = false;
 static const char *FLAGS_db = NULL;
 
 // Use following size when opening the database.
-static int FLAGS_db_size_in_gb = 0;
+static int FLAGS_db_size_in_gb = 1;
 
 using namespace leveldb;
 
