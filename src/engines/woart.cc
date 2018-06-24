@@ -33,6 +33,7 @@
 #include <iostream>
 #include "woart.h"
 #include <cstring>
+#include <cstdlib>
 
 #define DO_LOG 0
 #define LOG(msg) if (DO_LOG) std::cout << "[woart] " << msg << "\n"
@@ -58,26 +59,33 @@ Woart::~Woart() {
 
 KVStatus Woart::Get(const int32_t limit, const int32_t keybytes, int32_t* valuebytes,
                         const char* key, char* value) { 
-    uintptr_t val = (uintptr_t)art_search(&root, (unsigned char*)(key), strlen(key));                           
+    //uintptr_t val = (uintptr_t)art_search(&root, (unsigned char*)(key), strlen(key));                           
     LOG("Get for key=" << key);
     return NOT_FOUND;
 }
 
 KVStatus Woart::Get(const string& key, string* value) {
-    uintptr_t val = (uintptr_t)art_search(&root, (unsigned char*)(key.c_str()), (int)(key.size()));
     LOG("Get for key=" << key.c_str());
-    return NOT_FOUND;
+    void* val = art_search(&root, (unsigned char*)(key.c_str()), (int)(key.size()));
+    if (val == NULL) 
+        return NOT_FOUND;
+    else {
+        value->append((char*)val);
+        return OK;
+    }
 }
 
 KVStatus Woart::Put(const string& key, const string& value) {
-    uintptr_t line = 1;
+    char* line = (char*)malloc(value.size()+1);
+    strcpy(line, value.c_str());
     art_insert(&root, (unsigned char*)(key.c_str()), (int)(key.size()), (void*)line);
     LOG("Put key=" << key.c_str() << ", value.size=" << to_string(value.size()));
     return OK;
 }
 
 KVStatus Woart::Remove(const string& key) {
-    uintptr_t val = (uintptr_t)art_delete(&root, (unsigned char*)(key.c_str()), (int)(key.size()));
+    void* val = art_delete(&root, (unsigned char*)(key.c_str()), (int)(key.size()));
+    free(val);
     LOG("Remove key=" << key.c_str());
     return OK;
 }
