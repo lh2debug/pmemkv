@@ -30,6 +30,9 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+
+//Finish  art based on malloc
+
 #pragma once
 
 #include "../pmemkv.h"
