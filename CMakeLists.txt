@@ -31,6 +31,11 @@
 cmake_minimum_required(VERSION 3.6)
 project(pmemkv)
 
+message(lhh begin)
+add_definitions(-DNDEBUG -O3)
+message(lhh end)
+
+
 set(CMAKE_CXX_STANDARD 11)
 set(SOURCE_FILES src/pmemkv.cc src/pmemkv.h
     src/engines/blackhole.h src/engines/blackhole.cc

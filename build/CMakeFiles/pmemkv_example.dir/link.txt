@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/pmemkv_example.dir/src/pmemkv_example.cc.o  -o pmemkv_example  -L/usr/local/lib64 -Wl,-rpath,/usr/local/lib64:/root/lab505/app_source/mycode_pmemkv/pmemkv_with_woart/build libpmemkv.so -lpmemobj -lpmempool 

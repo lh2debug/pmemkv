@@ -1,0 +1,7 @@
+/root/lab505/app_source/mycode_pmemkv/pmemkv_with_woart/build/CMakeFiles/edit_cache.dir
+/root/lab505/app_source/mycode_pmemkv/pmemkv_with_woart/build/CMakeFiles/pmemkv_bench.dir
+/root/lab505/app_source/mycode_pmemkv/pmemkv_with_woart/build/CMakeFiles/pmemkv_test.dir
+/root/lab505/app_source/mycode_pmemkv/pmemkv_with_woart/build/CMakeFiles/pmemkv_example.dir
+/root/lab505/app_source/mycode_pmemkv/pmemkv_with_woart/build/CMakeFiles/pmemkv.dir
+/root/lab505/app_source/mycode_pmemkv/pmemkv_with_woart/build/CMakeFiles/rebuild_cache.dir
+/root/lab505/app_source/mycode_pmemkv/pmemkv_with_woart/build/CMakeFiles/gtest.dir

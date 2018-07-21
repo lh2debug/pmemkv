@@ -1,0 +1,22 @@
+Path:       /dev/shm/pmemkv
+Engine:     woart
+Keys:       16 bytes each
+Values:     1024 bytes each
+Entries:    1000000
+RawSize:    991.8 MB (estimated)
+WARNING: Optimization is disabled: benchmarks unnecessarily slow
+WARNING: Assertions are enabled; benchmarks unnecessarily slow
+------------------------------------------------
+removed      :       0.013 millis/op;
+open         :       0.024 millis/op;
+fillrandom   :       2.335 micros/op 428293 ops/sec;  424.8 MB/s
+overwrite    :       2.354 micros/op 424799 ops/sec;  421.3 MB/s
+removed      :       0.027 millis/op;
+open         :       0.013 millis/op;
+fillseq      :       2.241 micros/op 446190 ops/sec;  442.5 MB/s
+readrandom   :       2.211 micros/op 452250 ops/sec;  448.6 MB/s (1000000 of 1000000 found)
+readseq      :       1.203 micros/op 831136 ops/sec;  824.3 MB/s (1000000 of 1000000 found)
+readrandom   :       1.899 micros/op 526706 ops/sec;  522.4 MB/s (1000000 of 1000000 found)
+readmissing  :       1.043 micros/op 958426 ops/sec;   15.5 MB/s (0 of 1000000 found)
+readrandom   :       1.903 micros/op 525396 ops/sec;  521.1 MB/s (1000000 of 1000000 found)
+deleteseq    :       1.101 micros/op 908439 ops/sec;

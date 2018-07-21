@@ -1,0 +1,3 @@
+repository='external project URL'
+module='/root/lab505/app_source/mycode_pmemkv/pmemkv_with_woart/googletest-1.7.0.zip'
+tag=''

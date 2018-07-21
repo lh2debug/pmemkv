@@ -1,0 +1,4 @@
+/root/lab505/app_source/pmemkv_with_woart/gtest/src/gtest-build/CMakeFiles/edit_cache.dir
+/root/lab505/app_source/pmemkv_with_woart/gtest/src/gtest-build/CMakeFiles/gtest_main.dir
+/root/lab505/app_source/pmemkv_with_woart/gtest/src/gtest-build/CMakeFiles/rebuild_cache.dir
+/root/lab505/app_source/pmemkv_with_woart/gtest/src/gtest-build/CMakeFiles/gtest.dir

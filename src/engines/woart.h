@@ -35,14 +35,29 @@
 #include "../pmemkv.h"
 #include "art.h"
 
+
+using pmem::obj::p;
+using pmem::obj::persistent_ptr;
+using pmem::obj::make_persistent;
+using pmem::obj::transaction;
+using pmem::obj::delete_persistent;
+using pmem::obj::pool;
+
 namespace pmemkv {
 namespace woart {
 
 const string ENGINE = "woart";                         // engine identifier
 
+
+
+struct KVRoot {                                            // persistent root object
+    int magic_number;
+};
+
+
 class Woart : public KVEngine {
   public:
-    Woart();                                           // default constructor
+    Woart(const string& path, size_t size);                                           // default constructor
     ~Woart();                                          // default destructor
 
     string Engine() final { return ENGINE; }               // engine identifier
@@ -61,7 +76,7 @@ class Woart : public KVEngine {
     void operator=(const Woart&);                         // prevent assigning
     //vector<persistent_ptr<KVLeaf>> leaves_prealloc;        // persisted but unused leaves
     //const string pmpath;                                   // path when constructed
-    //pool<KVRoot> pmpool;                                   // pool for persistent root
+    pool<KVRoot> pmpool;                                   // pool for persistent root
     //unique_ptr<KVNode> tree_top;                           // pointer to uppermost inner node    
     art_tree root;
 };
